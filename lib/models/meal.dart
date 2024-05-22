@@ -12,7 +12,7 @@ enum Cost {
   expensive,
 }
 
-class Meal {
+class Meal extends ChangeNotifier {
   final String? id;
   final List<String>? categories;
   final String? title;

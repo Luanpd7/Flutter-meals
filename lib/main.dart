@@ -7,7 +7,8 @@ import 'screens/categories_meals_screen.dart';
 import 'utils/app_routes.dart';
 import 'screens/meal_detail_screen.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(
+  MyApp());
  
 class MyApp extends StatefulWidget {
   @override
@@ -52,7 +53,7 @@ class _MyAppState extends State<MyApp> {
         AppRoute.HOME: (ctx) => TabsScreen(_favoriteMeals), // Após retorna a lista do favoritos na tela MealDetailScreen, passara a lista na tela TabsScreen 
         AppRoute.CATEGORIES_MEALS: (ctx) => CategoriesMealsScreen(),
         AppRoute.MEALS_DETAIL: (ctx) => MealDetailScreen(_togglerFavorite, _isFavorite), // Passando a função _togglerFavorite para tela MealDetailScreen 
-        'config': (ctx) => SettingsScreen(),
+      
       }
     );
   }
