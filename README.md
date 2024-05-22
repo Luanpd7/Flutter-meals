@@ -1,16 +1,7 @@
 # app_refeicao
 
-A new Flutter project.
+App de receitas
 
-## Getting Started
+## Introdução
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+O Aplicativo vai mostrar as categorias de refeições, como lanche rápido, café da manhã e outros. Ao selecionar a categoria, mostrará as refeições daquela categoria e cada receita mostrará seu tempo de preparação, seu passo a passo, seus ingredientes e qual o nível da sua dificuldade
