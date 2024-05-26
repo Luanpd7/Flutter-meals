@@ -10,26 +10,31 @@ class SettingsScreen extends StatelessWidget {
     bool isSwitched = true;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Configurações'),
+        title: const Text('Configurações'),
           backgroundColor: Theme.of(context).primaryColor
       ),
       body: Consumer<MyState>(
         builder: ( context,  tema, child) {  
-        return Column(
-          children: [
-            Row(
-              children: [
-                Text('Tema ', style: Theme.of(context).textTheme.titleLarge,),
-                Switch(
-            value: tema.isLight,
-            onChanged: (value) {
-                tema.toggleTheme();
-        
-                            }
-                )
-              ]
-            )
-          ],
+        return Container(
+          padding: const EdgeInsets.all(10),
+          child: ListView(
+            
+            children: [           
+              Row(
+                children: [
+                  Text('Tema Dark ', style: Theme.of(context).textTheme.titleLarge,),
+                  
+                  Switch(
+              value: tema.isLight,
+              onChanged: (value) {
+                  tema.toggleTheme();
+          
+                              }
+                  )
+                ]
+              )
+            ],
+          ),
         );
         }
       ),

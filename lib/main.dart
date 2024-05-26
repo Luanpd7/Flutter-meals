@@ -1,5 +1,4 @@
 import 'package:app_refeicao/models/favorites.dart';
-import 'package:app_refeicao/models/meal.dart';
 import 'package:app_refeicao/screens/tabs_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -30,10 +29,6 @@ class MyState extends ChangeNotifier {
 
   bool get isLight => _isLight;
 
- 
-
-
-
   void toggleTheme() {
     _isLight = !_isLight;
     _sharedPreferences.setBool(appThemeModeKey, _isLight);
@@ -45,9 +40,6 @@ class MyState extends ChangeNotifier {
     _isLight = _sharedPreferences.getBool(appThemeModeKey) ?? true;
     notifyListeners();
   }
-
-
-
 }
 
 class MyApp extends StatefulWidget {
@@ -65,6 +57,18 @@ class _MyAppState extends State<MyApp> {
             title: 'Vamo Cozinhar?',
             theme: tema._isLight
                 ? ThemeData(
+                    brightness: Brightness.dark,
+                    primarySwatch: Colors.pink,
+                    primaryColor: Colors.blue,
+                    hintColor: Colors.amber,
+                    fontFamily: 'RaleWay',
+                    canvasColor: const Color.fromARGB(255, 53, 53, 53),
+                    textTheme: ThemeData.dark().textTheme.copyWith(
+                          titleLarge: const TextStyle(
+                              fontSize: 20, fontFamily: 'RobotoCondensed'),
+                        ),
+                  )
+                : ThemeData(
                     brightness: Brightness.light,
                     primarySwatch: Colors.pink,
                     primaryColor: Colors.pink,
@@ -72,19 +76,7 @@ class _MyAppState extends State<MyApp> {
                     fontFamily: 'RaleWay',
                     canvasColor: Colors.white,
                     textTheme: ThemeData.light().textTheme.copyWith(
-                          titleLarge: TextStyle(
-                              fontSize: 20, fontFamily: 'RobotoCondensed'),
-                        ),
-                  )
-                : ThemeData(
-                    brightness: Brightness.dark,
-                    primarySwatch: Colors.pink,
-                    primaryColor: Colors.blue,
-                    hintColor: Colors.amber,
-                    fontFamily: 'RaleWay',
-                    canvasColor: Colors.white,
-                    textTheme: ThemeData.dark().textTheme.copyWith(
-                          titleLarge: TextStyle(
+                          titleLarge: const TextStyle(
                               fontSize: 20, fontFamily: 'RobotoCondensed'),
                         ),
                   ),

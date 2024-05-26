@@ -1,7 +1,5 @@
 
-
 import 'package:app_refeicao/components/meal_item.dart';
-import '../components/meal_item.dart';
 import '../data/dummy_data.dart';
 import 'package:flutter/material.dart';
 import '../models/category.dart';
@@ -18,7 +16,7 @@ class CategoriesMealsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(category.title!, style: TextStyle( fontWeight: FontWeight.bold),),
+        title: Text(category.title!, style: Theme.of(context).textTheme.titleLarge ,),
         backgroundColor: Theme.of(context).primaryColor
  
       ),

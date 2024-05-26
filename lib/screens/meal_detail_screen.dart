@@ -40,7 +40,7 @@ class MealDetailScreen extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text("Detalhe da refeição"),
+          title: const Text("Detalhe da refeição"),
           backgroundColor: Theme.of(context).primaryColor,
         ),
         body: SingleChildScrollView(
@@ -62,12 +62,14 @@ class MealDetailScreen extends StatelessWidget {
                       itemCount: meal.ingredients!.length,
                       itemBuilder: ((context, index) {
                         return Card(
-                          child: Padding(
+                          child:  Padding(
                             padding: const EdgeInsets.symmetric(
                               vertical: 5,
                               horizontal: 10,
                             ),
-                            child: Text(meal.ingredients![index]),
+                            child: Text(meal.ingredients![index] , style: TextStyle(color: Colors.black)
+                            ),
+                            
                           ),
                           color: Theme.of(context).hintColor,
                         );
@@ -88,7 +90,7 @@ class MealDetailScreen extends StatelessWidget {
                                   )),
                               backgroundColor: Colors.red,
                             ),
-                            title: Text(meal.steps![index]),
+                            title: Text(meal.steps![index], style: TextStyle(color: Colors.black) ), 
                           ),
                           Divider(),
                         ],

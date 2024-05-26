@@ -1,7 +1,5 @@
 import 'package:app_refeicao/components/meal_item.dart';
 import 'package:app_refeicao/data/dummy_data.dart';
-import 'package:app_refeicao/models/category.dart';
-import 'package:app_refeicao/models/meal.dart';
 import 'package:flutter/material.dart';
 
 class AllMeals extends StatelessWidget {
@@ -16,7 +14,7 @@ class AllMeals extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Todas as refeirções', style: TextStyle( fontWeight: FontWeight.bold),),
+        title: Text('Todas as refeições', style: Theme.of(context).textTheme.titleLarge ,),
         backgroundColor: Theme.of(context).primaryColor,
  
       ),
