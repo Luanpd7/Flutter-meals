@@ -8,7 +8,6 @@ import 'screens/categories_meals_screen.dart';
 import 'utils/app_routes.dart';
 import 'screens/meal_detail_screen.dart';
 
-
 const appThemeModeKey = 'appThemeMode';
 
 void main() {
@@ -20,8 +19,8 @@ void main() {
   );
 }
 
-class _MyState extends ChangeNotifier{
-  _MyState(){
+class MyState extends ChangeNotifier {
+  MyState() {
     _init();
   }
 
@@ -31,22 +30,25 @@ class _MyState extends ChangeNotifier{
 
   bool get isLight => _isLight;
 
-
-   void toggleTheme(){
-  _isLight = !_isLight;
-  _sharedPreferences.setBool(appThemeModeKey, _isLight);
-  notifyListeners();
- }
-
  
+
+
+
+  void toggleTheme() {
+    _isLight = !_isLight;
+    _sharedPreferences.setBool(appThemeModeKey, _isLight);
+    notifyListeners();
+  }
+
   Future<void> _init() async {
     _sharedPreferences = await SharedPreferences.getInstance();
     _isLight = _sharedPreferences.getBool(appThemeModeKey) ?? true;
     notifyListeners();
   }
+
+
+
 }
-
-
 
 class MyApp extends StatefulWidget {
   @override
@@ -57,24 +59,35 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => _MyState(),
-      child: Consumer<_MyState>(
-        builder: (context, tema, child) {
-          
-        
-      return  MaterialApp(
+      create: (context) => MyState(),
+      child: Consumer<MyState>(builder: (context, tema, child) {
+        return MaterialApp(
             title: 'Vamo Cozinhar?',
-            theme: ThemeData(
-              primarySwatch: Colors.pink,
-              hintColor: Colors.amber,
-              fontFamily: 'RaleWay',
-              canvasColor: tema._isLight? Colors.white12 :Colors.white,
-              textTheme: ThemeData.light().textTheme.copyWith(
-                    titleLarge:
-                        TextStyle(fontSize: 20, fontFamily: 'RobotoCondensed'),
+            theme: tema._isLight
+                ? ThemeData(
+                    brightness: Brightness.light,
+                    primarySwatch: Colors.pink,
+                    primaryColor: Colors.pink,
+                    hintColor: Colors.amber,
+                    fontFamily: 'RaleWay',
+                    canvasColor: Colors.white,
+                    textTheme: ThemeData.light().textTheme.copyWith(
+                          titleLarge: TextStyle(
+                              fontSize: 20, fontFamily: 'RobotoCondensed'),
+                        ),
+                  )
+                : ThemeData(
+                    brightness: Brightness.dark,
+                    primarySwatch: Colors.pink,
+                    primaryColor: Colors.blue,
+                    hintColor: Colors.amber,
+                    fontFamily: 'RaleWay',
+                    canvasColor: Colors.white,
+                    textTheme: ThemeData.dark().textTheme.copyWith(
+                          titleLarge: TextStyle(
+                              fontSize: 20, fontFamily: 'RobotoCondensed'),
+                        ),
                   ),
-            ),
-        
             routes: {
               AppRoute.HOME: (ctx) {
                 return Builder(
@@ -88,21 +101,16 @@ class _MyAppState extends State<MyApp> {
                   },
                 );
               },
-            
               AppRoute.CATEGORIES_MEALS: (ctx) => CategoriesMealsScreen(),
               AppRoute.MEALS_DETAIL: (ctx) {
                 return Builder(builder: (context) {
-                  final favoritesProvider =  Provider.of<Favorites>(context, listen: false);
+                  final favoritesProvider =
+                      Provider.of<Favorites>(context, listen: false);
                   return MealDetailScreen();
                 });
               },
-            }
-        
-            
-            );
-        }
-      ),
-  
+            });
+      }),
     );
   }
 }

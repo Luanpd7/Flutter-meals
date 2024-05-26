@@ -41,7 +41,7 @@ class MealDetailScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text("Detalhe da refeição"),
-          backgroundColor: Colors.pink,
+          backgroundColor: Theme.of(context).primaryColor,
         ),
         body: SingleChildScrollView(
           child: Consumer<Favorites>(
@@ -84,7 +84,7 @@ class MealDetailScreen extends StatelessWidget {
                             leading: CircleAvatar(
                               child: Text('${index + 1}',
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: Theme.of(context).canvasColor,
                                   )),
                               backgroundColor: Colors.red,
                             ),

@@ -40,18 +40,18 @@ class _TabsScreenState extends State<TabsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
+    
     return Scaffold(
       appBar: AppBar(
-        title: Text(_screens[_selectScreenIndex]['title'] as String, style: TextStyle(color: Colors.white),
+        title: Text(_screens[_selectScreenIndex]['title'] as String, style: TextStyle(color: Theme.of(context).canvasColor),
         ),
-        backgroundColor: Colors.pink,
+        backgroundColor: Theme.of(context).primaryColor,
       ),
            drawer: MainDrawer(),
       body: _screens[_selectScreenIndex]['screen'] as Widget,
        bottomNavigationBar: BottomNavigationBar(
                 onTap: _selectScreen,
-                backgroundColor: Colors.pink,
+                backgroundColor: Theme.of(context).primaryColor,
                 selectedItemColor: Theme.of(context).hintColor,
                 unselectedItemColor: Theme.of(context).canvasColor,
                 currentIndex: _selectScreenIndex,
