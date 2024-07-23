@@ -1,7 +1,16 @@
-# app_refeicao
+## Funcionalidades Implementadas:
 
-App de receitas
+### Categorias de Refeições:
 
-## Introdução
+Exibição de categorias como lanche rápido, café da manhã, entre outras.
+### Visualização de Receitas:
 
-O Aplicativo vai mostrar as categorias de refeições, como lanche rápido, café da manhã e outros. Ao selecionar a categoria, mostrará as refeições daquela categoria e cada receita mostrará seu tempo de preparação, seu passo a passo, seus ingredientes e qual o nível da sua dificuldade
+Ao selecionar uma categoria, o aplicativo mostra as receitas pertencentes a essa categoria.
+### Detalhes da Receita:
+
+Tempo de preparação.
+Passo a passo do preparo.
+Ingredientes necessários.
+Nível de dificuldade.
+### Descrição:
+O aplicativo permite ao usuário explorar diferentes categorias de refeições. Ao escolher uma categoria, são exibidas as receitas disponíveis, detalhando o tempo de preparação, o passo a passo, os ingredientes e o nível de dificuldade de cada receita.
